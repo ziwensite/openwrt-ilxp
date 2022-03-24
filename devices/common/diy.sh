@@ -1,0 +1,149 @@
+#!/bin/bash
+#=================================================
+# Description: Build OpenWrt using GitHub Actions 
+# Lisence: MIT
+# 参考以下资料：
+# Frome: https://github.com/kiddin9/
+# Frome: https://github.com/P3TERX/Actions-OpenWrt
+# Frome: https://github.com/Lienol/openwrt-actions
+# Frome: https://github.com/svenstaro/upload-release-action
+# By YAOF 2020 https://www.yaoft.org
+# https://github.com/onewrt
+#=================================================
+
+# Add a feed source
+#sed -i '$a src-git custom https://github.com/kiddin9/openwrt-packages.git;master' feeds.conf.default
+#echo 'src-git iwrt https://github.com/kiddin9/openwrt-packages' >>feeds.conf.default
+#echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
+#注释掉默认的
+#sed -i 's/src-git lienol/#src-git lienol/g' feeds.conf.default
+#sed -i 's/src-git other/#src-git other/g' feeds.conf.default
+#升级安装feed
+#./scripts/feeds update -a
+#./scripts/feeds install -a -p custom
+#./scripts/feeds install -a
+#cd feeds/custom; git pull; cd -
+
+#清除自带的软件库
+rm -Rf package/kernel/mt76  #必须清楚，否则编译不成功
+
+#清除自带的软件库
+rm -Rf  feeds/lienol/verysync
+rm -Rf feeds/other/lean/luci-app-argon
+
+rm -Rf feeds/other/lean/automount
+git clone https://github.com/sirpdboy/automount package/automount
+
+#清楚kidd库里的eqos和ikoolproxy，用我自己的
+git clone https://github.com/yaof2/luci-app-eqos.git package/diy/luci-app-eqos
+git clone https://github.com/yaof2/luci-app-ikoolproxy.git package/diy/luci-app-ikoolproxy
+
+#rm -Rf feeds/other/lean/luci-app-turboacc 
+#svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-turboacc package/diy/luci-app-turboacc
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/dnsforwarder package/diy/dnsforwarder
+#svn co https://github.com/coolsnowwolf/packages/trunk/net/dnsproxy package/diy/dnsproxy
+
+
+#清除自带的软件库，luci会崩溃
+rm -Rf feeds/packages/net/nft-qos
+rm -Rf feeds/luci/transplant/luci-app-nft-qos
+
+#mosdns
+svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns package/diy/luci-app-mosdns
+svn co https://github.com/QiuSimons/openwrt-mos/trunk/mosdns package/diy/mosdns
+
+#rm -Rf feeds/other/luci-app-adguardhome
+#svn export --force https://github.com/immortalwrt/luci/openwrt-18.06/applications/applications/luci-app-adguardhome package/diy/luci-app-adguardhome
+#svn export --force https://github.com/immortalwrt/packages/trunk/net/adguardhome package/diy/adguardhome
+
+
+#svn export --force https://github.com/x-wrt/packages/trunk/net/nft-qos  package/diy/nft-qos
+#svn export --force https://github.com/x-wrt/luci/trunk/applications/luci-app-nft-qos package/diy/luci-app-nft-qos无法使用
+
+# 修内核
+sed -i 's/4.9/4.14/g' target/linux/x86/Makefile
+#sed -i 's/4.19/4.19/g' target/linux/x86/Makefile
+
+# 修改登陆地址
+sed -i 's/192.168.1.1/192.168.8.1/g' package/base-files/files/bin/config_generate
+# 关闭禁止解析IPv6 DNS 记录
+sed -i '/option filter_aaaa 1/d' package/network/services/dnsmasq/files/dhcp.conf
+
+# 解决冲突
+#sed -i 's/dnsmasq-full/dnsmasq/g' package/OpenClash/luci-app-openclash/Makefile
+
+# 添加内核
+#wget https://github.com/vernesong/OpenClash/releases/download/Clash/clash-linux-amd64.tar.gz&&tar -zxvf *.tar.gz
+#chmod 0755 clash
+#rm -rf *.tar.gz&&mkdir -p package/base-files/files/etc/openclash/core&&mv clash package/base-files/files/etc/openclash/core
+
+#修改网络连接数
+#sed -i 's/net.netfilter.nf_conntrack_max=65535/net.netfilter.nf_conntrack_max=105535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
+
+#添加adguardhome带核心安装。
+#git clone https://github.com/rufengsuixing/luci-app-adguardhome.git  package/diy/luci-app-adguardhome
+#sed -i '/resolvfile=/d' package/diy/luci-app-adguardhome/root/etc/init.d/AdGuardHome
+#sed -i 's/DEPENDS:=/DEPENDS:=+AdGuardHome /g' package/diy/luci-app-adguardhome/Ma
+
+#kiddin9大神
+#svn co  https://github.com/kiddin9/openwrt-bypass/luci-app-bypass package/diy/luci-app-bypass
+#git clone --depth 1 https://github.com/kiddin9/luci-app-dnsfilter package/diy/luci-app-dnsfilter
+
+#pymumu大神（18.06是lede的branch）
+#git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/diy/luci-app-smartdns
+#git clone https://github.com/pymumu/openwrt-smartdns.git package/diy/smartdns
+
+#svn co  https://github.com/jerrykuku/luci-app-ttnode package/diy/luci-app-ttnode
+
+#argon主题
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/diy/luci-theme-argon
+
+#重启计划
+svn co https://github.com/sirpdboy/diy/trunk/luci-app-rebootschedule package/diy/luci-app-rebootschedule
+
+#增加固件源码来源（只适合luci18系列，即E和N以及D系列.lienol源码只能用lean的，lean的只能用immortalwrt）
+rm -Rf feeds/other/lean/autocore
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore package/diy/autocore
+sed -i '/Load Average/i\\t\t<tr><td width="33%"><%:固件源码%></td><td><a href="https://github.com/lienol/openwrt"><%:感谢Lienol大神对OpenWrt的开源贡献！%></a></td></tr>' package/diy/autocore/files/x86/index.htm
+
+#svn export --force https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06/package/emortal/autocore package/diy/autocore
+#sed -i '/Load Average/i\\t\t<tr><td width="33%"><%:固件源码%></td><td><a href="https://github.com/lienol/openwrt"><%:感谢Lienol大神对OpenWrt的开源贡献！%></a></td></tr>' package/diy/autocore/files/generic/index.htm
+  
+
+#git clone https://github.com/destan19/OpenAppFilter.git package/diy/OpenAppFilter
+
+svn co  https://github.com/jerrykuku/luci-app-jd-dailybonus/trunk  package/diy/luci-app-jd-dailybonus  #京东签到
+
+#管控
+svn export --force https://github.com/Lienol/openwrt-package/trunk/luci-app-control-webrestriction package/diy/luci-app-control-webrestriction
+#svn export --force https://github.com/Lienol/openwrt-package/trunk/luci-app-control-timewol package/diy/luci-app-control-timewol无法运行
+svn export --force https://github.com/Lienol/openwrt-package/trunk/luci-app-control-weburl package/diy/luci-app-control-weburl
+svn export --force https://github.com/Lienol/openwrt-package/trunk/luci-app-timecontrol package/diy/luci-app-timecontrol
+
+
+
+#svn co https://github.com/brvphoenix/wrtbwmon/trunk/wrtbwmon package/wrtbwmon
+#svn co https://github.com/brvphoenix/luci-app-wrtbwmon/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
+
+#svn export --force https://github.com/kiddin9/openwrt-packages/project-lede/openwrt-app/branches/luci18/luci-app-openclash package/diy/luci-app-openclash
+#svn export --force https://github.com/kiddin9/openwrt-packages/ruby  package/diy/ruby 
+#svn export --force https://github.com/kiddin9/openwrt-packages/ruby-yaml package/diy/ruby-yaml
+
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/r8168  package/diy/r8168
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/r8125  package/diy/r8125
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/r8152  package/diy/r8152
+
+
+#克隆passwall
+svn export --force https://github.com/xiaorouji/openwrt-passwall/branches/luci package/diy/
+sed -i '$a src-git diy https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
+
+./scripts/feeds update -a
+./scripts/feeds install -a
+./scripts/feeds install -a
+
+
+# 内核显示增加自己个性名称(21.3.2 %y : 年份的最后两位数字)
+date=`date +%y.%m.%d`
+sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='YAOF N%C From Lienol Openwrt %V'/g" package/base-files/files/etc/openwrt_release
+sed -i "s/# REVISION:=x/REVISION:= $date/g" include/version.mk
