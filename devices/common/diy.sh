@@ -37,6 +37,7 @@ git clone https://github.com/sirpdboy/automount package/automount
 #清楚kidd库里的eqos和ikoolproxy，用我自己的
 git clone https://github.com/yaof2/luci-app-eqos.git package/diy/luci-app-eqos
 git clone https://github.com/yaof2/luci-app-ikoolproxy.git package/diy/luci-app-ikoolproxy
+git clone https://github.com/yaof2/luci-app-clash.git package/diy/luci-app-clash
 
 #rm -Rf feeds/other/lean/luci-app-turboacc 
 #svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-turboacc package/diy/luci-app-turboacc
