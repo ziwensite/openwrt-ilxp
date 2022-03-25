@@ -34,10 +34,11 @@ rm -Rf feeds/other/lean/luci-app-argon
 rm -Rf feeds/other/lean/automount
 git clone https://github.com/sirpdboy/automount package/automount
 
-#清楚kidd库里的eqos和ikoolproxy，用我自己的
+#清楚kidd库里的eqos和ikoolproxy和clash，用我自己的
 git clone https://github.com/yaof2/luci-app-eqos.git package/diy/luci-app-eqos
 git clone https://github.com/yaof2/luci-app-ikoolproxy.git package/diy/luci-app-ikoolproxy
 git clone https://github.com/yaof2/luci-app-clash.git package/diy/luci-app-clash
+#lienol的源码不能用libustream-openssl
 sed -i 's/libustream-openssl +curl/curl/g' package/diy/luci-app-clash/Makefile
 
 #rm -Rf feeds/other/lean/luci-app-turboacc 
@@ -71,9 +72,12 @@ sed -i 's/192.168.1.1/192.168.8.1/g' package/base-files/files/bin/config_generat
 # 关闭禁止解析IPv6 DNS 记录
 sed -i '/option filter_aaaa 1/d' package/network/services/dnsmasq/files/dhcp.conf
 
-# 解决冲突
-#sed -i 's/dnsmasq-full/dnsmasq/g' package/OpenClash/luci-app-openclash/Makefile
 
+#openclash
+#sed -i '$a src-git openclash https://github.com/vernesong/OpenClash.git' feeds.conf.default
+#svn export --force https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/diy/luci-app-openclash
+#svn export --force https://github.com/openwrt/packages/branches/openwrt-21.02/libs/libcap  package/diy/libcap
+#svn export --force https://github.com/openwrt/packages/branches/openwrt-21.02/lang/ruby  package/diy/ruby
 # 添加内核
 #wget https://github.com/vernesong/OpenClash/releases/download/Clash/clash-linux-amd64.tar.gz&&tar -zxvf *.tar.gz
 #chmod 0755 clash
