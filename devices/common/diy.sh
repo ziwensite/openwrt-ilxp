@@ -37,9 +37,9 @@ git clone https://github.com/sirpdboy/automount package/automount
 #清楚kidd库里的eqos和ikoolproxy和clash，用我自己的
 git clone https://github.com/yaof2/luci-app-eqos.git package/diy/luci-app-eqos
 git clone https://github.com/yaof2/luci-app-ikoolproxy.git package/diy/luci-app-ikoolproxy
-git clone https://github.com/yaof2/luci-app-clash.git package/diy/luci-app-clash
+#git clone https://github.com/yaof2/luci-app-clash.git package/diy/luci-app-clash
 #lienol的源码不能用libustream-openssl
-sed -i 's/libustream-openssl +curl/curl/g' package/diy/luci-app-clash/Makefile
+#sed -i 's/libustream-openssl +curl/curl/g' package/diy/luci-app-clash/Makefile
 
 #rm -Rf feeds/other/lean/luci-app-turboacc 
 #svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-turboacc package/diy/luci-app-turboacc
@@ -75,13 +75,13 @@ sed -i '/option filter_aaaa 1/d' package/network/services/dnsmasq/files/dhcp.con
 
 #openclash
 #sed -i '$a src-git openclash https://github.com/vernesong/OpenClash.git' feeds.conf.default
-#svn export --force https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/diy/luci-app-openclash
-#svn export --force https://github.com/openwrt/packages/branches/openwrt-21.02/libs/libcap  package/diy/libcap
-#svn export --force https://github.com/openwrt/packages/branches/openwrt-21.02/lang/ruby  package/diy/ruby
+svn export --force https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/diy/luci-app-openclash
+svn export --force https://github.com/openwrt/packages/branches/openwrt-21.02/libs/libcap  package/diy/libcap
+svn export --force https://github.com/openwrt/packages/branches/openwrt-21.02/lang/ruby  package/diy/ruby
 # 添加内核
-#wget https://github.com/vernesong/OpenClash/releases/download/Clash/clash-linux-amd64.tar.gz&&tar -zxvf *.tar.gz
-#chmod 0755 clash
-#rm -rf *.tar.gz&&mkdir -p package/base-files/files/etc/openclash/core&&mv clash package/base-files/files/etc/openclash/core
+wget https://github.com/vernesong/OpenClash/releases/download/Clash/clash-linux-amd64.tar.gz&&tar -zxvf *.tar.gz
+chmod 0755 clash
+rm -rf *.tar.gz&&mkdir -p package/base-files/files/etc/openclash/core&&mv clash package/base-files/files/etc/openclash/core
 
 #修改网络连接数
 #sed -i 's/net.netfilter.nf_conntrack_max=65535/net.netfilter.nf_conntrack_max=105535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
