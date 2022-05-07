@@ -28,8 +28,9 @@
 rm -Rf package/kernel/mt76  #必须清楚，否则编译不成功
 
 #清除自带的软件库
-rm -Rf  feeds/lienol/verysync
+rm -Rf feeds/lienol/verysync
 rm -Rf feeds/other/lean/luci-app-argon
+rm -Rf feeds/lienol/luci-app-verysync
 
 rm -Rf feeds/other/lean/automount
 git clone https://github.com/sirpdboy/automount package/automount
@@ -79,13 +80,13 @@ sed -i '/option filter_aaaa 1/d' package/network/services/dnsmasq/files/dhcp.con
 
 #openclash
 #sed -i '$a src-git openclash https://github.com/vernesong/OpenClash.git' feeds.conf.default
-svn export --force https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/diy/luci-app-openclash
-svn export --force https://github.com/openwrt/packages/branches/openwrt-21.02/libs/libcap  package/diy/libcap
-svn export --force https://github.com/openwrt/packages/branches/openwrt-21.02/lang/ruby  package/diy/ruby
+#svn export --force https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/diy/luci-app-openclash
+#svn export --force https://github.com/openwrt/packages/branches/openwrt-21.02/libs/libcap  package/diy/libcap
+#svn export --force https://github.com/openwrt/packages/branches/openwrt-21.02/lang/ruby  package/diy/ruby
 # 添加内核
-wget https://github.com/vernesong/OpenClash/releases/download/Clash/clash-linux-amd64.tar.gz&&tar -zxvf *.tar.gz
-chmod 0755 clash
-rm -rf *.tar.gz&&mkdir -p package/base-files/files/etc/openclash/core&&mv clash package/base-files/files/etc/openclash/core
+#wget https://github.com/vernesong/OpenClash/releases/download/Clash/clash-linux-amd64.tar.gz&&tar -zxvf *.tar.gz
+#chmod 0755 clash
+#rm -rf *.tar.gz&&mkdir -p package/base-files/files/etc/openclash/core&&mv clash package/base-files/files/etc/openclash/core
 
 #修改网络连接数
 #sed -i 's/net.netfilter.nf_conntrack_max=65535/net.netfilter.nf_conntrack_max=105535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
