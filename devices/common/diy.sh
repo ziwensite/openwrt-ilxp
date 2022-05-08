@@ -31,7 +31,6 @@ rm -Rf package/kernel/mt76  #必须清楚，否则编译不成功
 rm -Rf feeds/lienol/verysync
 rm -Rf feeds/other/lean/luci-app-argon
 rm -Rf feeds/lienol/luci-app-verysync
-rm -Rf feeds/packages/lang/lyaml
 
 rm -Rf feeds/other/lean/automount
 git clone https://github.com/sirpdboy/automount package/automount
@@ -42,10 +41,6 @@ git clone https://github.com/yaof2/luci-app-ikoolproxy.git package/diy/luci-app-
 #git clone https://github.com/yaof2/luci-app-clash.git package/diy/luci-app-clash
 #lienol的源码不能用libustream-openssl
 #sed -i 's/libustream-openssl +curl/curl/g' package/diy/luci-app-clash/Makefile
-
-#简单的clash
-git clone https://github.com/chandelures/openwrt-clash package/diy/openwrt-clash
-git clone https://github.com/chandelures/luci-app-simple-clash package/diy/luci-app-simple-clash
 
 #rm -Rf feeds/other/lean/luci-app-turboacc 
 #svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-turboacc package/diy/luci-app-turboacc
