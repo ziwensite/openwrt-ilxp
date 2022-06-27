@@ -54,7 +54,7 @@ rm -Rf feeds/luci/transplant/luci-app-nft-qos
 
 #mosdns
 svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns package/diy/luci-app-mosdns
-svn co https://github.com/QiuSimons/openwrt-mos/trunk/mosdns package/diy/mosdns
+svn co https://github.com/QiuSimons/openwrt-mos/trunk/mosdns package/diy/mosdns_neo
 
 #rm -Rf feeds/other/luci-app-adguardhome
 #svn export --force https://github.com/immortalwrt/luci/openwrt-18.06/applications/applications/luci-app-adguardhome package/diy/luci-app-adguardhome
