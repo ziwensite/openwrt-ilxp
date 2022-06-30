@@ -57,7 +57,7 @@ rm -Rf feeds/luci/transplant/luci-app-nft-qos
 #svn co https://github.com/QiuSimons/openwrt-mos/branches/v3_EOL/mosdns package/diy/mosdns
 
 svn co https://github.com/QiuSimons/openwrt-mos/trunk/luci-app-mosdns package/diy/luci-app-mosdns
-sed -i 's/mosdns-neo/mosdns/g' package/diy/luci-app-mosdns/Makefile
+sed -i 's/+mosdns-neo/+mosdns/g' package/diy/luci-app-mosdns/Makefile
 
 svn co https://github.com/QiuSimons/openwrt-mos/trunk/mosdns package/diy/mosdns
 sed -i 's/mosdns-neo/mosdns/g' package/diy/mosdns/Makefile
