@@ -56,8 +56,9 @@ rm -Rf feeds/luci/transplant/luci-app-nft-qos
 #svn co https://github.com/QiuSimons/openwrt-mos/branches/v3_EOL/luci-app-mosdns package/diy/luci-app-mosdns
 #svn co https://github.com/QiuSimons/openwrt-mos/branches/v3_EOL/mosdns package/diy/mosdns
 
-svn co https://github.com/yaof2/openwrt-mos/trunk/luci-app-mosdns package/diy/luci-app-mosdns
-svn co https://github.com/yaof2/openwrt-mos/trunk/mosdns package/diy/mosdns
+svn co https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns package/diy/luci-app-mosdns
+svn co https://github.com/sbwml/luci-app-mosdns/trunk/mosdns package/diy/mosdns
+svn co https://github.com/sbwml/v2ray-geodata package/diy/v2ray-geodata
 
 
 #rm -Rf feeds/other/luci-app-adguardhome
