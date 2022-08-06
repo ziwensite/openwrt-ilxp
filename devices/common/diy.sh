@@ -42,8 +42,8 @@ git clone https://github.com/yaof2/luci-app-ikoolproxy.git package/diy/luci-app-
 #lienol的源码不能用libustream-openssl
 #sed -i 's/libustream-openssl +curl/curl/g' package/diy/luci-app-clash/Makefile
 
-#rm -Rf feeds/other/lean/luci-app-turboacc 
-#svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-turboacc package/diy/luci-app-turboacc
+rm -Rf feeds/other/lean/luci-app-turboacc 
+svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-turboacc package/diy/luci-app-turboacc
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/dnsforwarder package/diy/dnsforwarder
 #svn co https://github.com/coolsnowwolf/packages/trunk/net/dnsproxy package/diy/dnsproxy
 
