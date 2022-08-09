@@ -5,7 +5,6 @@ config smartdns
 	option tcp_server '1'
 	option ipv6_server '1'
 	option seconddns_port '6553'
-	option seconddns_tcp_server '1'
 	option seconddns_no_speed_check '0'
 	option seconddns_no_rule_addr '0'
 	option seconddns_no_rule_nameserver '0'
@@ -25,6 +24,8 @@ config smartdns
 	option rr_ttl_max '3600'
 	option server_name 'cn'
 	option seconddns_server_group 'gw'
+	option seconddns_enabled '1'
+	option seconddns_tcp_server '0'
 	list old_redirect 'dnsmasq-upstream'
 	list old_port '6053'
 	list old_enabled '1'
@@ -34,23 +35,28 @@ config server
 	option type 'udp'
 	option name '114'
 	option ip '114.114.114.114'
+	option server_group 'cn'
+	option blacklist_ip '0'
 
 config server
 	option enabled '1'
 	option type 'udp'
 	option name '百度'
 	option ip '180.76.76.76'
+	option server_group 'cn'
 
 config server
 	option enabled '1'
 	option name 'DNSPod'
 	option ip 'dns.pub/dns-query'
 	option type 'https'
+	option server_group 'cn'
 
 config server
 	option enabled '1'
 	option name '阿里'
 	option ip 'dns.alidns.com/dns-query'
+	option server_group 'cn'
 	option type 'https'
 
 config server
@@ -58,21 +64,27 @@ config server
 	option name 'Google'
 	option ip 'dns.google/dns-query'
 	option type 'https'
+	option server_group 'gw'
+	option blacklist_ip '0'
 
 config server
 	option enabled '1'
 	option name 'CloudFare'
 	option ip 'dns.cloudflare.com/dns-query'
+	option server_group 'gw'
 	option type 'https'
 
 config server
 	option enabled '1'
 	option name 'Quad9'
 	option ip 'dns.quad9.net/dns-query'
+	option server_group 'gw'
 	option type 'https'
 
 config server
 	option enabled '1'
 	option name 'OpenDNS'
 	option ip 'doh.opendns.com/dns-query'
+	option server_group 'gw'
 	option type 'https'
+
