@@ -25,6 +25,11 @@ uci set mosdns.mosdns.not_first_start='1'
 uci set mosdns.mosdns.geo_auto_update='1'
 uci commit mosdns
 
+
+uci set smartdns.smartdns.enabled='1'
+uci commit smartdns
+
+
 uci set uhttpd.main.redirect_https='0'
 uci commit uhttpd
 
