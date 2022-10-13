@@ -102,8 +102,8 @@ sed -i '/option filter_aaaa 1/d' package/network/services/dnsmasq/files/dhcp.con
 #git clone --depth 1 https://github.com/kiddin9/luci-app-dnsfilter package/diy/luci-app-dnsfilter
 
 #pymumu大神（18.06是lede的branch）
-git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/diy/luci-app-smartdns
-git clone https://github.com/pymumu/openwrt-smartdns.git package/diy/smartdns
+#git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/diy/luci-app-smartdns
+#git clone https://github.com/pymumu/openwrt-smartdns.git package/diy/smartdns
 
 #svn co  https://github.com/jerrykuku/luci-app-ttnode package/diy/luci-app-ttnode
 
