@@ -31,7 +31,6 @@ rm -Rf package/kernel/mt76  #必须清楚，否则编译不成功
 rm -Rf feeds/lienol/verysync
 rm -Rf feeds/other/lean/luci-app-argon
 rm -Rf feeds/lienol/luci-app-verysync
-rm -Rf feeds/luci/applications/
 
 rm -Rf feeds/other/lean/automount
 git clone https://github.com/sirpdboy/automount package/automount
