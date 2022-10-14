@@ -43,9 +43,9 @@ git clone https://github.com/yaof2/luci-app-ikoolproxy.git package/diy/luci-app-
 #sed -i 's/libustream-openssl +curl/curl/g' package/diy/luci-app-clash/Makefile
 
 #rm -Rf feeds/other/lean/luci-app-turboacc 
-#svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-turboacc package/diy/luci-app-turboacc
-#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/dnsforwarder package/diy/dnsforwarder
-#svn co https://github.com/coolsnowwolf/packages/trunk/net/dnsproxy package/diy/dnsproxy
+svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-turboacc package/diy/luci-app-turboacc
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/dnsforwarder package/diy/dnsforwarder
+svn co https://github.com/coolsnowwolf/packages/trunk/net/dnsproxy package/diy/dnsproxy
 
 
 #清除自带的软件库，luci会崩溃
@@ -102,8 +102,8 @@ sed -i '/option filter_aaaa 1/d' package/network/services/dnsmasq/files/dhcp.con
 #git clone --depth 1 https://github.com/kiddin9/luci-app-dnsfilter package/diy/luci-app-dnsfilter
 
 #pymumu大神（18.06是lede的branch）
-#git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/diy/luci-app-smartdns
-#git clone https://github.com/pymumu/openwrt-smartdns.git package/diy/smartdns
+git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/diy/luci-app-smartdns
+git clone https://github.com/pymumu/openwrt-smartdns.git package/diy/smartdns
 
 #svn co  https://github.com/jerrykuku/luci-app-ttnode package/diy/luci-app-ttnode
 
@@ -134,8 +134,8 @@ svn export --force https://github.com/Lienol/openwrt-package/trunk/luci-app-time
 
 
 
-#svn co https://github.com/brvphoenix/wrtbwmon/trunk/wrtbwmon package/wrtbwmon
-#svn co https://github.com/brvphoenix/luci-app-wrtbwmon/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
+svn co https://github.com/brvphoenix/wrtbwmon/trunk/wrtbwmon package/wrtbwmon
+svn co https://github.com/brvphoenix/luci-app-wrtbwmon/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
 
 #svn export --force https://github.com/kiddin9/openwrt-packages/project-lede/openwrt-app/branches/luci18/luci-app-openclash package/diy/luci-app-openclash
 #svn export --force https://github.com/kiddin9/openwrt-packages/ruby  package/diy/ruby 
