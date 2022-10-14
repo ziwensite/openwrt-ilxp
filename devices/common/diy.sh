@@ -31,6 +31,7 @@ rm -Rf package/kernel/mt76  #必须清楚，否则编译不成功
 git clone https://github.com/sirpdboy/automount package/automount
 
 #清楚kidd库里的eqos和ikoolproxy和clash，用我自己的
+rm -Rf feeds/kiddin9/luci-app-eqos
 git clone https://github.com/yaof2/luci-app-eqos.git package/diy/luci-app-eqos
 git clone https://github.com/yaof2/luci-app-ikoolproxy.git package/diy/luci-app-ikoolproxy
 #git clone https://github.com/yaof2/luci-app-clash.git package/diy/luci-app-clash
@@ -44,6 +45,7 @@ git clone https://github.com/yaof2/luci-app-ikoolproxy.git package/diy/luci-app-
 
 #清除自带的软件库，luci会崩溃
 rm -Rf feeds/packages/net/nft-qos
+rm -Rf feeds/luci/transplant/luci-app-nft-qos
 rm -Rf feeds/luci/transplant/luci-app-nft-qos
 
 #mosdns（编译不成功，转战smartdns）
