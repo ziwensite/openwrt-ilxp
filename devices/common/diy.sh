@@ -25,10 +25,10 @@
 #cd feeds/custom; git pull; cd -
 
 #清除lienol1907系列自带的软件库
-rm -Rf feeds/luci/applications
+#rm -Rf feeds/luci/applications
 
 #克隆lean的luci应用
-svn co https://github.com/coolsnowwolf/luci/trunk/applications package/lean/applications
+#svn co https://github.com/coolsnowwolf/luci/trunk/applications package/lean/applications
 
 rm -Rf package/kernel/mt76  #必须清楚，否则编译不成功
 
