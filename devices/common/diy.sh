@@ -124,7 +124,7 @@ sed -i '/Load Average/i\\t\t<tr><td width="33%"><%:固件源码%></td><td><a hre
 
 #git clone https://github.com/destan19/OpenAppFilter.git package/diy/OpenAppFilter
 
-svn co  https://github.com/jerrykuku/luci-app-jd-dailybonus/trunk  package/diy/luci-app-jd-dailybonus  #京东签到
+#svn co  https://github.com/jerrykuku/luci-app-jd-dailybonus/trunk  package/diy/luci-app-jd-dailybonus  #京东签到
 
 #管控
 svn export --force https://github.com/Lienol/openwrt-package/trunk/luci-app-control-webrestriction package/diy/luci-app-control-webrestriction
@@ -134,8 +134,8 @@ svn export --force https://github.com/Lienol/openwrt-package/trunk/luci-app-time
 
 
 
-svn co https://github.com/brvphoenix/wrtbwmon/trunk/wrtbwmon package/wrtbwmon
-svn co https://github.com/brvphoenix/luci-app-wrtbwmon/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
+#svn co https://github.com/brvphoenix/wrtbwmon/trunk/wrtbwmon package/wrtbwmon
+#svn co https://github.com/brvphoenix/luci-app-wrtbwmon/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
 
 #svn export --force https://github.com/kiddin9/openwrt-packages/project-lede/openwrt-app/branches/luci18/luci-app-openclash package/diy/luci-app-openclash
 #svn export --force https://github.com/kiddin9/openwrt-packages/ruby  package/diy/ruby 
