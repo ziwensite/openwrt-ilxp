@@ -24,14 +24,18 @@
 #./scripts/feeds install -a
 #cd feeds/custom; git pull; cd -
 
-#清除自带的软件库
-#rm -Rf feeds/luci/applications
+#清除lienol1907系列自带的软件库
+rm -Rf feeds/luci/applications
+
+#克隆lean的luci应用
+svn co https://github.com/coolsnowwolf/luci/trunk/applications package/lean/applications
+
 rm -Rf package/kernel/mt76  #必须清楚，否则编译不成功
 
 git clone https://github.com/sirpdboy/automount package/automount
 
 #清楚kidd库里的eqos和ikoolproxy和clash，用我自己的
-rm -Rf feeds/kiddin9/luci-app-eqos
+rm -Rf package/lean/applications/luci-app-eqos
 git clone https://github.com/yaof2/luci-app-eqos.git package/diy/luci-app-eqos
 git clone https://github.com/yaof2/luci-app-ikoolproxy.git package/diy/luci-app-ikoolproxy
 #git clone https://github.com/yaof2/luci-app-clash.git package/diy/luci-app-clash
