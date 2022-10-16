@@ -26,6 +26,11 @@
 
 #清除lienol1907系列自带的软件库
 #rm -Rf feeds/luci/applications
+rm -Rf feeds/luci/applications/luci-app-unblockmusic
+rm -Rf feeds/luci/applications/luci-app-vlmcsd
+rm -Rf feeds/luci/applications/luci-app-wol
+rm -Rf feeds/luci/themes/luci-theme-argon
+
 
 #克隆lean的luci应用
 #svn co https://github.com/coolsnowwolf/luci/trunk/applications package/lean/applications
