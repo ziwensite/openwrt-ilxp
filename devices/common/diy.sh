@@ -129,7 +129,12 @@ sed -i '/Load Average/i\\t\t<tr><td width="33%"><%:固件源码%></td><td><a hre
 
 #git clone https://github.com/destan19/OpenAppFilter.git package/diy/OpenAppFilter
 
-#svn co  https://github.com/jerrykuku/luci-app-jd-dailybonus/trunk  package/diy/luci-app-jd-dailybonus  #京东签到
+# 京东签到 By Jerrykuku
+git clone --depth 1 https://github.com/jerrykuku/node-request.git package/new/node-request
+git clone --depth 1 https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/new/luci-app-jd-dailybonus
+
+# 网易云音乐解锁
+git clone -b js --depth 1 https://github.com/UnblockNeteaseMusic/luci-app-unblockneteasemusic.git package/new/UnblockNeteaseMusic
 
 #管控
 svn export --force https://github.com/Lienol/openwrt-package/trunk/luci-app-control-webrestriction package/diy/luci-app-control-webrestriction
