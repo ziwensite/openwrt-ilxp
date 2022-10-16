@@ -35,6 +35,9 @@ rm -Rf feeds/luci/themes/luci-theme-argon
 #克隆lean的luci应用
 #svn co https://github.com/coolsnowwolf/luci/trunk/applications package/lean/applications
 
+#克隆lean的ipv6-helper
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ipv6-helper  package/diy/ipv6-helper
+
 rm -Rf package/kernel/mt76  #必须清楚，否则编译不成功
 
 git clone https://github.com/sirpdboy/automount package/automount
