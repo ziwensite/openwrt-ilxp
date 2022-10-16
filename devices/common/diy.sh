@@ -24,7 +24,7 @@
 #./scripts/feeds install -a
 #cd feeds/custom; git pull; cd -
 
-#清除lienol1907系列自带的软件库
+#清除lean库里几个造成编译不成功的软件
 #rm -Rf feeds/luci/applications
 rm -Rf feeds/luci/applications/luci-app-unblockmusic
 rm -Rf feeds/luci/applications/luci-app-vlmcsd
@@ -39,13 +39,11 @@ rm -Rf package/kernel/mt76  #必须清楚，否则编译不成功
 
 git clone https://github.com/sirpdboy/automount package/automount
 
-#清楚kidd库里的eqos和ikoolproxy和clash，用我自己的
+#eqos和ikoolproxy和clash，用我自己的
 rm -Rf package/lean/applications/luci-app-eqos
 git clone https://github.com/yaof2/luci-app-eqos.git package/diy/luci-app-eqos
 git clone https://github.com/yaof2/luci-app-ikoolproxy.git package/diy/luci-app-ikoolproxy
-#git clone https://github.com/yaof2/luci-app-clash.git package/diy/luci-app-clash
-#lienol的源码不能用libustream-openssl
-#sed -i 's/libustream-openssl +curl/curl/g' package/diy/luci-app-clash/Makefile
+
 
 #svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-turboacc package/diy/luci-app-turboacc
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/dnsforwarder package/diy/dnsforwarder
@@ -95,7 +93,7 @@ sed -i '/option filter_aaaa 1/d' package/network/services/dnsmasq/files/dhcp.con
 #rm -rf *.tar.gz&&mkdir -p package/base-files/files/etc/openclash/core&&mv clash package/base-files/files/etc/openclash/core
 
 #修改网络连接数
-#sed -i 's/net.netfilter.nf_conntrack_max=65535/net.netfilter.nf_conntrack_max=105535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
+sed -i 's/net.netfilter.nf_conntrack_max=65535/net.netfilter.nf_conntrack_max=105535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 
 #添加adguardhome带核心安装。
 #git clone https://github.com/rufengsuixing/luci-app-adguardhome.git  package/diy/luci-app-adguardhome
@@ -120,11 +118,11 @@ svn co https://github.com/sirpdboy/diy/trunk/luci-app-rebootschedule package/diy
 
 #增加固件源码来源（只适合luci18系列，即E和N以及D系列.lienol源码只能用lean的，lean的只能用immortalwrt）
 rm -Rf feeds/other/lean/autocore
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore package/diy/autocore
-sed -i '/Load Average/i\\t\t<tr><td width="33%"><%:固件源码%></td><td><a href="https://github.com/lienol/openwrt"><%:感谢Lienol大神对OpenWrt的开源贡献！%></a></td></tr>' package/diy/autocore/files/x86/index.htm
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore package/diy/autocore
+#sed -i '/Load Average/i\\t\t<tr><td width="33%"><%:固件源码%></td><td><a href="https://github.com/lienol/openwrt"><%:感谢Lienol大神对OpenWrt的开源贡献！%></a></td></tr>' package/diy/autocore/files/x86/index.htm
 
-#svn export --force https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06/package/emortal/autocore package/diy/autocore
-#sed -i '/Load Average/i\\t\t<tr><td width="33%"><%:固件源码%></td><td><a href="https://github.com/lienol/openwrt"><%:感谢Lienol大神对OpenWrt的开源贡献！%></a></td></tr>' package/diy/autocore/files/generic/index.htm
+svn export --force https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06/package/emortal/autocore package/diy/autocore
+sed -i '/Load Average/i\\t\t<tr><td width="33%"><%:固件源码%></td><td><a href="https://github.com/lienol/openwrt"><%:感谢Lienol大神对OpenWrt的开源贡献！%></a></td></tr>' package/diy/autocore/files/generic/index.htm
   
 
 #git clone https://github.com/destan19/OpenAppFilter.git package/diy/OpenAppFilter
