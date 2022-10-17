@@ -35,12 +35,15 @@ rm -Rf feeds/luci/themes/luci-theme-argon
 #克隆lean的luci应用
 #svn co https://github.com/coolsnowwolf/luci/trunk/applications package/lean/applications
 
-#克隆lean的ipv6-helper
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ipv6-helper  package/diy/ipv6-helper
+#克隆immortalwrt的ipv6-helper
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ipv6-helper  package/diy/ipv6-helper
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06/package/emortal/autocore package/diy/autocore
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06/package/emortal/automount package/diy/automount
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06/package/emortal/autosamba package/diy/autosamba
+svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06/package/emortal/ipv6-helper package/diy/ipv6-helper
+
 
 rm -Rf package/kernel/mt76  #必须清楚，否则编译不成功
-
-git clone https://github.com/sirpdboy/automount package/automount
 
 #eqos和ikoolproxy和clash，用我自己的
 rm -Rf package/lean/applications/luci-app-eqos
@@ -149,13 +152,15 @@ svn export --force https://github.com/Lienol/openwrt-package/trunk/luci-app-time
 #svn co https://github.com/brvphoenix/wrtbwmon/trunk/wrtbwmon package/wrtbwmon
 #svn co https://github.com/brvphoenix/luci-app-wrtbwmon/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
 
-#svn export --force https://github.com/kiddin9/openwrt-packages/project-lede/openwrt-app/branches/luci18/luci-app-openclash package/diy/luci-app-openclash
+#svn export --force https://github.com/kiddin9/openwrt-packages/branches/luci18/luci-app-openclash package/diy/luci-app-openclash
 #svn export --force https://github.com/kiddin9/openwrt-packages/ruby  package/diy/ruby 
 #svn export --force https://github.com/kiddin9/openwrt-packages/ruby-yaml package/diy/ruby-yaml
 
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/r8168  package/diy/r8168
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/r8125  package/diy/r8125
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/r8152  package/diy/r8152
+svn co https://github.com/kiddin9/openwrt-packages/trunk/r8101  package/diy/r8101
+svn co https://github.com/kiddin9/openwrt-packages/trunk/r8101  package/diy/r8125
+svn co https://github.com/kiddin9/openwrt-packages/trunk/r8168  package/diy/r8168 
+svn co https://github.com/kiddin9/openwrt-packages/trunk/rtl8821cu package/diy/rtl8821cu
+svn co https://github.com/kiddin9/openwrt-packages/trunk/rtl88x2bu  package/diy/rtl88x2bu 
 
 
 #克隆passwall
