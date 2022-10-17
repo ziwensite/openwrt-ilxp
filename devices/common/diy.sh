@@ -159,7 +159,7 @@ svn export --force https://github.com/Lienol/openwrt-package/trunk/luci-app-time
 svn co https://github.com/kiddin9/openwrt-packages/trunk/r8101  package/diy/r8101
 svn co https://github.com/kiddin9/openwrt-packages/trunk/r8101  package/diy/r8125
 svn co https://github.com/kiddin9/openwrt-packages/trunk/r8168  package/diy/r8168 
-svn co https://github.com/kiddin9/openwrt-packages/trunk/rtl8821cu package/diy/rtl8821cu
+#svn co https://github.com/kiddin9/openwrt-packages/trunk/rtl8821cu package/diy/rtl8821cu  编译不成功，取消
 svn co https://github.com/kiddin9/openwrt-packages/trunk/rtl88x2bu  package/diy/rtl88x2bu 
 
 
