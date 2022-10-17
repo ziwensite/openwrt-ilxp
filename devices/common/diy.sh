@@ -7,8 +7,8 @@
 # Frome: https://github.com/P3TERX/Actions-OpenWrt
 # Frome: https://github.com/Lienol/openwrt-actions
 # Frome: https://github.com/svenstaro/upload-release-action
-# By YAOF 2020 https://www.yaoft.org
-# https://github.com/onewrt
+# By YAOF 2020 https://www.yaof.org
+# https://github.com/yaof2
 #=================================================
 
 # Add a feed source
@@ -127,7 +127,7 @@ rm -Rf feeds/other/lean/autocore
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/autocore package/diy/autocore
 #sed -i '/Load Average/i\\t\t<tr><td width="33%"><%:固件源码%></td><td><a href="https://github.com/lienol/openwrt"><%:感谢Lienol大神对OpenWrt的开源贡献！%></a></td></tr>' package/diy/autocore/files/x86/index.htm
 
-svn export --force https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06/package/emortal/autocore package/diy/autocore
+#svn export --force https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06/package/emortal/autocore package/diy/autocore
 sed -i '/Load Average/i\\t\t<tr><td width="33%"><%:固件源码%></td><td><a href="https://github.com/lienol/openwrt"><%:感谢Lienol大神对OpenWrt的开源贡献！%></a></td></tr>' package/diy/autocore/files/generic/index.htm
   
 
