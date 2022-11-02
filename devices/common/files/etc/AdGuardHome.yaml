@@ -106,78 +106,26 @@ tls:
   private_key_path: ""
 filters:
 - enabled: true
-  url: https://gitee.com/halflife/list/raw/master/ad.txt
-  name: HalfLife整合规则（乘风视频+EasylistChina+EasylistLite+CJX'sAnnoyance）
+  url: https://adrules.top/dns.txt
+  name: Cats-team-AdRules DNS List
   id: 1603860858
 - enabled: true
-  url: https://cdn.jsdelivr.net/gh/banbendalao/ADgk@latest/ADgk.txt
-  name: 国内手机
+  url: https://adrules.top/adguard.txt
+  name: AdRules AdGuard Filter List 合并的AdGuard列表
   id: 1584462286
-- enabled: true
-  url: https://easylist-downloads.adblockplus.org/easyprivacy.txt
-  name: EasyPrivacy
-  id: 1603860856
-- enabled: true
-  url: https://easylist-downloads.adblockplus.org/easylist-cookie.txt
-  name: EasyList Cookie List
-  id: 1603860857
-- enabled: true
-  url: https://gitee.com/lhzgl6587/hosts/raw/master/myruler
-  name: 视频去广告
-  id: 1645059796
-- enabled: true
-  url: https://gitee.com/xinggsf/Adblock-Rule/raw/master/rule.txt
-  name: 乘风广告过滤规则
-  id: 1645065396
-- enabled: true
-  url: https://gist.githubusercontents.com/Ewpratten/a25ae63a7200c02c850fede2f32453cf/raw/b9318009399b99e822515d388b8458557d828c37/hosts-yt-ads
-  name: YouTube-去广告
-  id: 1645059797
-- enabled: false
-  url: https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
-  name: AdGuard DNS filter
-  id: 1
-- enabled: false
-  url: https://block.energized.pro/blu/formats/filter
-  name: Energized Protection Blu
-  id: 1590467081
 - enabled: false
   url: https://anti-ad.net/easylist.txt
   name: anti-AD
   id: 1580820695
-- enabled: false
-  url: http://uujian.cn/browser/txt/metalist.txt
-  name: 荟萃
-  id: 1575015275
-- enabled: false
-  url: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts
-  name: StevenBlack fakenews gambling
-  id: 1577002821
-- enabled: false
-  url: https://adaway.org/hosts.txt
-  name: AdAway
-  id: 2
-- enabled: false
-  url: https://www.malwaredomainlist.com/hostslist/hosts.txt
-  name: MalwareDomainList.com Hosts List
-  id: 4
-- enabled: false
-  url: https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts
-  name: googlehosts
-  id: 1573404421
-- enabled: false
+- enabled: true
   url: https://gist.githubusercontent.com/Ewpratten/a25ae63a7200c02c850fede2f32453cf/raw/b9318009399b99e822515d388b8458557d828c37/hosts-yt-ads
   name: YouTube-AdBlock
   id: 1584350199
-- enabled: false
-  url: https://gitee.com/xinggsf/Adblock-Rule/raw/master/mv.txt
-  name: 乘风视频
-  id: 1645059798
-- enabled: false
-  url: https://easylist-downloads.adblockplus.org/easylistchina.txt
-  name: EasylistChina.
-  id: 1645059799
-whitelist_filters: []
+whitelist_filters:
+- enabled: true
+  url: https://gitlab.com/cats-team/adrules/-/raw/main/allow.txt
+  name: cats-team-allow
+  id: 1667356202
 user_rules:
 - '#放行'
 - '@@||exp.sug.browser.miui.com^$important'
