@@ -7,8 +7,8 @@
 # Frome: https://github.com/P3TERX/Actions-OpenWrt
 # Frome: https://github.com/Lienol/openwrt-actions
 # Frome: https://github.com/svenstaro/upload-release-action
-# By YAOF 2020 https://www.yaof.org
-# https://github.com/yaof2
+# By OneWRT 2020 https://www.onewrt.org
+# https://github.com/ilxp
 #=================================================
 
 # Add a feed source
@@ -174,5 +174,5 @@ sed -i '$a src-git diy https://github.com/xiaorouji/openwrt-passwall' feeds.conf
 
 # 内核显示增加自己个性名称(21.3.2 %y : 年份的最后两位数字)
 date=`date +%y.%m.%d`
-sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='YAOF N%C From Lienol Openwrt %V'/g" package/base-files/files/etc/openwrt_release
+sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='OneWRT N-EOL-%C From Lienol Openwrt %V'/g" package/base-files/files/etc/openwrt_release
 sed -i "s/# REVISION:=x/REVISION:= $date/g" include/version.mk
