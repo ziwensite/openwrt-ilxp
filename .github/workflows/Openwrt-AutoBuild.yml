@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Yaof-N1907-From-Lienol
+name: OneWRT-N1907-From-Lienol
 
 on: 
   #push:
@@ -473,8 +473,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
       with:
         files: "${{ env.FIRMWARE }}/*"
-        name: ${{ env.date2 }}-YAOF-${{matrix.target}} ${{ env.EMOJI }}
-        tag_name: ${{ env.date }}-YAOF-${{matrix.target}}
+        name: ${{ env.date2 }}-OneWRT-${{matrix.target}} ${{ env.EMOJI }}
+        tag_name: ${{ env.date }}-OneWRT-${{matrix.target}}
         body_path: release.txt
 
     - name: Upload firmware for artifact
@@ -482,7 +482,7 @@ jobs:
       continue-on-error: true
       if: env.UPLOAD_FIRMWARE_FOR_ARTIFACT == 'true'
       with:
-        name: ${{ env.date3 }}-YAOF-${{matrix.target}}
+        name: ${{ env.date3 }}-OneWRT-${{matrix.target}}
         path: ${{ env.FIRMWARE }}
         
     - name: WeChat notification
