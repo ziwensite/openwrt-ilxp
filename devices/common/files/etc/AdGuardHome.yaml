@@ -115,12 +115,20 @@ filters:
   id: 1584462286
 - enabled: false
   url: https://anti-ad.net/easylist.txt
-  name: anti-AD
+  name: Anti-AD
   id: 1580820695
 - enabled: true
   url: https://gist.githubusercontent.com/Ewpratten/a25ae63a7200c02c850fede2f32453cf/raw/b9318009399b99e822515d388b8458557d828c37/hosts-yt-ads
   name: YouTube-AdBlock
   id: 1584350199
+- enabled: false
+  url: https://cdn.jsdelivr.net/gh/o0HalfLife0o/list@master/ad-pc.txt
+  name: Halflife整合规则
+  id: 1667399831
+- enabled: true
+  url: https://gitee.com/xinggsf/Adblock-Rule/raw/master/mv.txt
+  name: 乘风视频
+  id: 1667399832
 whitelist_filters:
 - enabled: true
   url: https://gitlab.com/cats-team/adrules/-/raw/main/allow.txt
