@@ -84,19 +84,21 @@ sed -i 's/4.9/4.14/g' target/linux/x86/Makefile
 
 # 修改登陆地址
 sed -i 's/192.168.1.1/192.168.8.1/g' package/base-files/files/bin/config_generate
-# 关闭禁止解析IPv6 DNS 记录
-sed -i '/option filter_aaaa 1/d' package/network/services/dnsmasq/files/dhcp.conf
+
+# 开启禁止解析IPv6 DNS 记录
+#sed -i '/option filter_aaaa 1/d' package/network/services/dnsmasq/files/dhcp.conf
 
 
 #openclash
 #sed -i '$a src-git openclash https://github.com/vernesong/OpenClash.git' feeds.conf.default
-#svn export --force https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/diy/luci-app-openclash
-#svn export --force https://github.com/openwrt/packages/branches/openwrt-21.02/libs/libcap  package/diy/libcap
-#svn export --force https://github.com/openwrt/packages/branches/openwrt-21.02/lang/ruby  package/diy/ruby
+svn export --force https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/diy/luci-app-openclash
+svn export --force https://github.com/openwrt/packages/branches/openwrt-21.02/libs/libcap  package/diy/libcap
+svn export --force https://github.com/openwrt/packages/branches/openwrt-21.02/lang/ruby  package/diy/ruby
 # 添加内核
 #wget https://github.com/vernesong/OpenClash/releases/download/Clash/clash-linux-amd64.tar.gz&&tar -zxvf *.tar.gz
-#chmod 0755 clash
-#rm -rf *.tar.gz&&mkdir -p package/base-files/files/etc/openclash/core&&mv clash package/base-files/files/etc/openclash/core
+wget https://raw.githubusercontent.com/vernesong/OpenClash/master/core-lateset/dev/clash-linux-amd64.tar.gz&&tar -zxvf *.tar.gz
+chmod 0755 clash
+rm -rf *.tar.gz&&mkdir -p package/base-files/files/etc/openclash/core&&mv clash package/base-files/files/etc/openclash/core
 
 #修改网络连接数
 sed -i 's/net.netfilter.nf_conntrack_max=65535/net.netfilter.nf_conntrack_max=105535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
