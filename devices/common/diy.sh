@@ -74,6 +74,8 @@ rm -Rf feeds/luci/transplant/luci-app-nft-qos
 #svn export --force https://github.com/immortalwrt/luci/openwrt-18.06/applications/applications/luci-app-adguardhome package/diy/luci-app-adguardhome
 #svn export --force https://github.com/immortalwrt/packages/trunk/net/adguardhome package/diy/adguardhome
 
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adguardhome package/diy/luci-app-adguardhome
+svn co https://github.com/kiddin9/openwrt-packages/trunk/adguardhome package/diy/adguardhome
 
 #svn export --force https://github.com/x-wrt/packages/trunk/net/nft-qos  package/diy/nft-qos
 #svn export --force https://github.com/x-wrt/luci/trunk/applications/luci-app-nft-qos package/diy/luci-app-nft-qos无法使用
