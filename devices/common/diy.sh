@@ -30,6 +30,7 @@ rm -Rf feeds/luci/applications/luci-app-unblockmusic
 rm -Rf feeds/luci/applications/luci-app-vlmcsd
 rm -Rf feeds/luci/applications/luci-app-wol
 rm -Rf feeds/luci/themes/luci-theme-argon
+rm -Rf feeds/packages/net/adguardhome
 
 
 #克隆lean的luci应用
@@ -75,6 +76,7 @@ rm -Rf feeds/luci/transplant/luci-app-nft-qos
 #svn export --force https://github.com/immortalwrt/packages/trunk/net/adguardhome package/diy/adguardhome
 
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adguardhome package/diy/luci-app-adguardhome
+svn co https://github.com/kiddin9/openwrt-packages/trunk/adguardhome package/diy/adguardhome
 
 
 #svn export --force https://github.com/x-wrt/packages/trunk/net/nft-qos  package/diy/nft-qos
