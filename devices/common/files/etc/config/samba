@@ -1,7 +1,7 @@
 config samba
-	option 'name'			'OneWRT'
+	option 'name'			'OPOK'
 	option 'workgroup'		'WORKGROUP'
-	option 'description'		'Shared On OneWRT'
+	option 'description'		'Shared On OPOK'
 	option 'homes'			'1'
 
 
