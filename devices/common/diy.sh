@@ -91,10 +91,6 @@ sed -i 's/4.9/4.14/g' target/linux/x86/Makefile
 # 修改登陆地址
 sed -i 's/192.168.1.1/192.168.8.1/g' package/base-files/files/bin/config_generate
 
-# 开启禁止解析IPv6 DNS 记录
-#sed -i '/option filter_aaaa 1/d' package/network/services/dnsmasq/files/dhcp.conf
-
-
 #openclash
 #sed -i '$a src-git openclash https://github.com/vernesong/OpenClash.git' feeds.conf.default
 #svn export --force https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/diy/luci-app-openclash
