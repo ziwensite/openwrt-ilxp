@@ -48,8 +48,8 @@ rm -Rf package/kernel/mt76  #必须清楚，否则编译不成功
 
 #eqos和ikoolproxy和clash，用我自己的
 rm -Rf package/lean/applications/luci-app-eqos
-git clone https://github.com/ilxp/luci-app-eqos2.git package/diy/luci-app-eqos
-git clone https://github.com/ilxp/luci-app-ikoolproxy2.git package/diy/luci-app-ikoolproxy
+git clone https://github.com/ilxp/luci-app-eqos.git package/diy/luci-app-eqos
+git clone https://github.com/ilxp/luci-app-ikoolproxy.git package/diy/luci-app-ikoolproxy
 
 
 #svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-turboacc package/diy/luci-app-turboacc
