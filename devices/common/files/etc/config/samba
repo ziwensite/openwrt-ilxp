@@ -1,7 +1,7 @@
 config samba
-	option 'name'			'OPOK'
+	option 'name'			'OpoK'
 	option 'workgroup'		'WORKGROUP'
-	option 'description'		'Shared On OPOK'
+	option 'description'		'Shared On OpoK'
 	option 'homes'			'1'
 
 
