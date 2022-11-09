@@ -5,7 +5,7 @@ uci set luci.main.lang=zh_cn
 uci set luci.main.mediaurlbase=/luci-static/argon
 uci commit luci
 
-uci set system.@system[0].hostname=OneWRT
+uci set system.@system[0].hostname=OpoK
 uci set system.@system[0].timezone=CST-8
 uci set system.@system[0].zonename=Asia/Shanghai
 uci -q del system.ntp.server
@@ -115,15 +115,13 @@ sed -i '/option disabled/d' /etc/config/wireless
 sed -i '/set wireless.radio${devidx}.disabled/d' /lib/wifi/mac80211.sh
 wifi up
 
-sed -i 's/DISTRIB_ID/DISTRIB_ID='OneWRT'/g' /etc/openwrt_release
-
 #sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
 #echo "DISTRIB_REVISION='@20.6.29 From Lienol'" >> /etc/openwrt_release
 #sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 #echo "DISTRIB_DESCRIPTION='OneWrt '" >> /etc/openwrt_release
 
-#sed -i '/DISTRIB_ID/d' /etc/openwrt_release
-#echo "DISTRIB_ID='OneWRT'" >> /etc/openwrt_release
+sed -i '/DISTRIB_ID/d' /etc/openwrt_release
+echo "DISTRIB_ID='OpoK'" >> /etc/openwrt_release
 
 # NEVER DROP THE EXISTING AUTHORS INFO | 禁止删除现有作者信息
 sed -i 's/LuCI 17.01 Lienol/LuCI 17.01/g' /usr/lib/lua/luci/version.lua
