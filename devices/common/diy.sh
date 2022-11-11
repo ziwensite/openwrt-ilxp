@@ -7,7 +7,7 @@
 # Frome: https://github.com/P3TERX/Actions-OpenWrt
 # Frome: https://github.com/Lienol/openwrt-actions
 # Frome: https://github.com/svenstaro/upload-release-action
-# By OpoK 2022 https://www.opok.org
+# By Opok 2022 https://www.opok.org
 # https://github.com/ilxp
 #=================================================
 
@@ -60,8 +60,9 @@ git clone https://github.com/ilxp/luci-app-ikoolproxy.git package/diy/luci-app-i
 #清除自带的软件库，luci会崩溃
 rm -Rf feeds/packages/net/nft-qos
 rm -Rf feeds/luci/transplant/luci-app-nft-qos
-rm -Rf feeds/luci/transplant/luci-app-nft-qos
-88
+#svn export --force https://github.com/x-wrt/packages/trunk/net/nft-qos  package/diy/nft-qos
+#svn export --force https://github.com/x-wrt/luci/trunk/applications/luci-app-nft-qos package/diy/luci-app-nft-qos无法使用
+
 #mosdns（编译不成功，转战smartdns）
 #svn co https://github.com/QiuSimons/openwrt-mos/branches/v3_EOL/luci-app-mosdns package/diy/luci-app-mosdns
 #svn co https://github.com/QiuSimons/openwrt-mos/branches/v3_EOL/mosdns package/diy/mosdns
@@ -80,9 +81,6 @@ rm -Rf feeds/packages/net/adguardhome
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adguardhome package/diy/luci-app-adguardhome
 svn co https://github.com/kiddin9/openwrt-packages/trunk/adguardhome package/diy/adguardhome
 
-
-#svn export --force https://github.com/x-wrt/packages/trunk/net/nft-qos  package/diy/nft-qos
-#svn export --force https://github.com/x-wrt/luci/trunk/applications/luci-app-nft-qos package/diy/luci-app-nft-qos无法使用
 
 # 修内核
 sed -i 's/4.9/4.14/g' target/linux/x86/Makefile
@@ -178,5 +176,5 @@ sed -i '$a src-git diy https://github.com/xiaorouji/openwrt-passwall' feeds.conf
 
 # 内核显示增加自己个性名称(21.3.2 %y : 年份的最后两位数字)
 date=`date +%y.%m.%d`
-sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='OpoK N-EOL@%C From Lienol OpenWRT %V By ilxp'/g" package/base-files/files/etc/openwrt_release
+sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='Opok N-EOL@%C From Lienol OpenWRT %V By ilxp'/g" package/base-files/files/etc/openwrt_release
 sed -i "s/# REVISION:=x/REVISION:= $date/g" include/version.mk
