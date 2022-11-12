@@ -125,10 +125,6 @@ git clone https://github.com/pymumu/openwrt-smartdns.git package/diy/smartdns
 #argon主题
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/diy/luci-theme-argon
 
-#opentomcat主题
-git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/diy/luci-theme-opentomcat
-sed -i 's/OpenWrt/Opok/g' package/diy/luci-theme-opentomcat/files/templates/header.htm
-
 #重启计划
 svn co https://github.com/sirpdboy/diy/trunk/luci-app-rebootschedule package/diy/luci-app-rebootschedule
 
@@ -172,6 +168,7 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/r8168  package/diy/r816
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/rtl8821cu package/diy/rtl8821cu  编译不成功，取消
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/rtl88x2bu  package/diy/rtl88x2bu
 
+./scripts/feeds update -a
 
 # 内核显示增加自己个性名称(21.3.2 %y : 年份的最后两位数字)
 date=`date +%y.%m.%d`
