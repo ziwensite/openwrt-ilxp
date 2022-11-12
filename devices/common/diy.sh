@@ -178,20 +178,3 @@ sed -i '$a src-git diy https://github.com/xiaorouji/openwrt-passwall' feeds.conf
 date=`date +%y.%m.%d`
 sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='Opok N-EOL@%C From Lienol OpenWRT %V By ilxp'/g" package/base-files/files/etc/openwrt_release
 sed -i "s/# REVISION:=x/REVISION:= $date/g" include/version.mk
-
-#安装oh-my-zsh
-mkdir -p files/root
-pushd files/root
-## Install oh-my-zsh
-# Clone oh-my-zsh repository
-git clone https://github.com/robbyrussell/oh-my-zsh ./.oh-my-zsh
-# Install extra plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ./.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ./.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-completions ./.oh-my-zsh/custom/plugins/zsh-completions
-# Get .zshrc dotfile
-cp $GITHUB_WORKSPACE/devices/common/.zshrc .
-popd
-
-# Change default shell to zsh将系统ash改为zsh
-sed -i 's/\/bin\/ash/\/usr\/bin\/zsh/g' package/base-files/files/etc/passwd
