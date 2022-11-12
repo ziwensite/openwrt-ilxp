@@ -121,6 +121,10 @@ git clone https://github.com/pymumu/openwrt-smartdns.git package/diy/smartdns
 #argon主题
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/diy/luci-theme-argon
 
+#opentomcat主题
+git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/diy/luci-theme-opentomcat
+sed -i 's/OpenWrt/Opok/g' package/diy/luci-theme-opentomcat/files/templates/header.htm
+
 #重启计划
 svn co https://github.com/sirpdboy/diy/trunk/luci-app-rebootschedule package/diy/luci-app-rebootschedule
 
