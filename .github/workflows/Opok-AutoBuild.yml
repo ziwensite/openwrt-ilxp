@@ -132,10 +132,6 @@ jobs:
            mv devices/${{matrix.target}}/feeds.conf.default openwrt/	         
           )
           fi
-          
-          cd openwrt
-          ./scripts/feeds update -a
-          ./scripts/feeds install -a
 
     - name: Load custom configuration
       run: |
