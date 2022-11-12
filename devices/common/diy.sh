@@ -24,17 +24,20 @@
 #./scripts/feeds install -a
 #cd feeds/custom; git pull; cd -
 
+#克隆passwall
+svn export --force https://github.com/xiaorouji/openwrt-passwall/branches/luci package/diy/
+sed -i '$a src-git diy https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
+
+./scripts/feeds update -a
+./scripts/feeds install -a
+./scripts/feeds install -a
+
 #清除lean库里几个造成编译不成功的软件
 #rm -Rf feeds/luci/applications
 rm -Rf feeds/luci/applications/luci-app-unblockmusic
 rm -Rf feeds/luci/applications/luci-app-vlmcsd
 rm -Rf feeds/luci/applications/luci-app-wol
 rm -Rf feeds/luci/themes/luci-theme-argon
-
-
-
-#克隆lean的luci应用
-#svn co https://github.com/coolsnowwolf/luci/trunk/applications package/lean/applications
 
 #克隆immortalwrt的ipv6-helper
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ipv6-helper  package/diy/ipv6-helper
@@ -167,16 +170,7 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/r8101  package/diy/r810
 svn co https://github.com/kiddin9/openwrt-packages/trunk/r8125  package/diy/r8125
 svn co https://github.com/kiddin9/openwrt-packages/trunk/r8168  package/diy/r8168 
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/rtl8821cu package/diy/rtl8821cu  编译不成功，取消
-#svn co https://github.com/kiddin9/openwrt-packages/trunk/rtl88x2bu  package/diy/rtl88x2bu 
-
-
-#克隆passwall
-svn export --force https://github.com/xiaorouji/openwrt-passwall/branches/luci package/diy/
-sed -i '$a src-git diy https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
-
-./scripts/feeds update -a
-./scripts/feeds install -a
-./scripts/feeds install -a
+#svn co https://github.com/kiddin9/openwrt-packages/trunk/rtl88x2bu  package/diy/rtl88x2bu
 
 
 # 内核显示增加自己个性名称(21.3.2 %y : 年份的最后两位数字)
