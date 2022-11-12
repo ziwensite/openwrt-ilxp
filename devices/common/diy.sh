@@ -59,9 +59,10 @@ git clone https://github.com/ilxp/luci-app-ikoolproxy.git package/diy/luci-app-i
 
 #清除自带的软件库，luci会崩溃
 rm -Rf feeds/packages/net/nft-qos
-rm -Rf feeds/luci/transplant/luci-app-nft-qos
-#svn export --force https://github.com/x-wrt/packages/trunk/net/nft-qos  package/diy/nft-qos
-#svn export --force https://github.com/x-wrt/luci/trunk/applications/luci-app-nft-qos package/diy/luci-app-nft-qos无法使用
+rm -Rf feeds/luci/applications/luci-app-nft-qos
+#只有克隆lean的好用
+svn export --force https://github.com/coolsnowwolf/packages/trunk/net/nft-qos  package/diy/nft-qos
+svn export --force https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-nft-qos package/diy/luci-app-nft-qos
 
 #mosdns（编译不成功，转战smartdns）
 #svn co https://github.com/QiuSimons/openwrt-mos/branches/v3_EOL/luci-app-mosdns package/diy/luci-app-mosdns
