@@ -49,25 +49,24 @@ svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06/package
 
 rm -Rf package/kernel/mt76  #必须清楚，否则编译不成功
 
-#eqos和ikoolproxy和clash，用我自己的
-#rm -Rf package/lean/applications/luci-app-eqos
-#git clone https://github.com/ilxp/luci-app-eqos.git package/diy/luci-app-eqos
-svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-eqos  package/diy/luci-app-eqos
-git clone https://github.com/ilxp/openwrt-nft-qos.git package/diy/openwrt-nft-qos
+#克隆ikoolproxy
 git clone https://github.com/ilxp/luci-app-ikoolproxy.git package/diy/luci-app-ikoolproxy
+
+#清除自带的软件库，luci会崩溃
+rm -Rf feeds/packages/net/nft-qos
+rm -Rf feeds/luci/applications/luci-app-nft-qos
+git clone https://github.com/ilxp/openwrt-nft-qos.git package/diy/openwrt-nft-qos
+#只有克隆lean的好用,上面的已经是lean的了。
+#svn export --force https://github.com/coolsnowwolf/packages/trunk/net/nft-qos  package/diy/nft-qos
+#svn export --force https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-nft-qos package/diy/luci-app-nft-qos
+
+#克隆eqos
+svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-eqos  package/diy/luci-app-eqos
 
 
 #svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-turboacc package/diy/luci-app-turboacc
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/dnsforwarder package/diy/dnsforwarder
 #svn co https://github.com/coolsnowwolf/packages/trunk/net/dnsproxy package/diy/dnsproxy
-
-
-#清除自带的软件库，luci会崩溃
-rm -Rf feeds/packages/net/nft-qos
-rm -Rf feeds/luci/applications/luci-app-nft-qos
-#只有克隆lean的好用
-svn export --force https://github.com/coolsnowwolf/packages/trunk/net/nft-qos  package/diy/nft-qos
-svn export --force https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-nft-qos package/diy/luci-app-nft-qos
 
 #mosdns（编译不成功，转战smartdns）
 #svn co https://github.com/QiuSimons/openwrt-mos/branches/v3_EOL/luci-app-mosdns package/diy/luci-app-mosdns
