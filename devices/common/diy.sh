@@ -85,7 +85,7 @@ svn export --force https://github.com/ilxp/openwrt-nft-qos/trunk/luci-app-nft-qo
 
 #克隆eqos，产生一个QOS栏目
 rm -Rf feeds/luci/applications/luci-app-eqos
-git clone https://github.com/ilxp/luci-app-eqos.git  package/diy/luci-app-eqos
+git clone -b 1806 https://github.com/ilxp/luci-app-eqos.git  package/diy/luci-app-eqos
 #sed -i 's/#entry/entry/g' package/diy/luci-app-eqos/luasrc/controller/eqos.lua
 
 
