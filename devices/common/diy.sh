@@ -167,6 +167,15 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/r8168  package/diy/r816
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/rtl8821cu package/diy/rtl8821cu  编译不成功，取消
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/rtl88x2bu  package/diy/rtl88x2bu
 
+#克隆alist
+#rm -rf feeds/packages/lang/golang
+#svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
+#git clone https://github.com/sbwml/luci-app-alist package/alist
+
+#升级golang for Xray-core
+rm -rf feeds/packages/lang/golang
+svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang feeds/packages/lang/golang
+
 # 内核显示增加自己个性名称(21.3.2 %y : 年份的最后两位数字)
 date=`date +%y.%m.%d`
 sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='Opok N-EOL@%C From Lienol OpenWRT %V By ilxp'/g" package/base-files/files/etc/openwrt_release
