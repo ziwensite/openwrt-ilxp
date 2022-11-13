@@ -6,4 +6,11 @@ src-git telephony https://git.openwrt.org/feed/telephony.git;openwrt-19.07
 src-git freifunk https://github.com/freifunk/openwrt-packages.git;openwrt-19.07
 #src-git lienol https://github.com/Lienol/openwrt-package.git;main
 #src-git other https://github.com/Lienol/openwrt-package.git;other
-#src-git kiddin9 https://github.com/kiddin9/openwrt-packages.git;master
+
+src-git passwall https://github.com/xiaorouji/openwrt-passwall.git;packages
+src-git passwall_luci https://github.com/xiaorouji/openwrt-passwall.git;luci
+#src-git helloworld https://github.com/fw876/helloworld.git;master
+#src-git bypass https://github.com/kiddin9/openwrt-bypass.git;main
+#克隆应用商店以及快速启动
+src-git nas https://github.com/linkease/nas-packages.git;master
+src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main
