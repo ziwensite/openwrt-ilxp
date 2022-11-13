@@ -290,11 +290,11 @@ jobs:
         find openwrt/bin/packages/*/*  -name "*nps*" | xargs -i mv -f {} ./firmware/
         find openwrt/bin/packages/*/*  -name "*nfs*" | xargs -i mv -f {} ./firmware/
         find openwrt/bin/packages/*/*  -name "*openclash*" | xargs -i mv -f {} ./firmware/
-         find openwrt/bin/packages/*/*  -name "*ruby*" | xargs -i mv -f {} ./firmware/
+        find openwrt/bin/packages/*/*  -name "*ruby*" | xargs -i mv -f {} ./firmware/
         find openwrt/bin/packages/*/*  -name "*openvpn*" | xargs -i mv -f {} ./firmware/
         find openwrt/bin/packages/*/*  -name "*openvpn-server*" | xargs -i mv -f {} ./firmware/
         find openwrt/bin/packages/*/*  -name "*oaf*" | xargs -i mv -f {} ./firmware/
-        find openwrt/bin/packages/*/*  -name "*passwall*" | xargs -i mv -f {} ./firmware/
+        #find openwrt/bin/packages/*/*  -name "*passwall*" | xargs -i mv -f {} ./firmware/
         find openwrt/bin/packages/*/*  -name "*pppoe-relay*" | xargs -i mv -f {} ./firmware/
         find openwrt/bin/packages/*/*  -name "*rp-pppoe-server*" | xargs -i mv -f {} ./firmware/
         find openwrt/bin/packages/*/*  -name "*privoxy*" | xargs -i mv -f {} ./firmware/
@@ -370,7 +370,7 @@ jobs:
         zip -r luci-app-openvpn.zip *openvpn* || true
         zip -r luci-app-oaf.zip *oaf* || true
         zip -r luci-app-openvpn-server.zip *openvpn-server* || true
-        zip -r luci-app-passwall.zip *passwall*  || true
+        #zip -r luci-app-passwall.zip *passwall*  || true
         zip -r luci-app-pppoe-relay.zip *pppoe-relay* || true
         zip -r luci-app-privoxy.zip  *privoxy* || true
         zip -r luci-app-ps3netsrv.zip  *ps3netsrv* || true
