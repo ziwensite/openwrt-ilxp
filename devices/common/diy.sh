@@ -46,8 +46,10 @@ svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06/package
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06/package/emortal/autosamba package/diy/autosamba
 svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06/package/emortal/ipv6-helper package/diy/ipv6-helper
 
-
-rm -Rf package/kernel/mt76  #必须清楚，否则编译不成功
+# Fix mt76 wireless driver
+pushd package/kernel/mt76
+sed -i '/mt7662u_rom_patch.bin/a\\techo mt76-usb disable_usb_sg=1 > $\(1\)\/etc\/modules.d\/mt76-usb' Makefile
+popd
 
 #克隆ikoolproxy
 git clone https://github.com/ilxp/luci-app-ikoolproxy.git package/diy/luci-app-ikoolproxy
