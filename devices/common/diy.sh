@@ -24,13 +24,31 @@
 #./scripts/feeds install -a
 #cd feeds/custom; git pull; cd -
 
-#克隆passwall
-svn export --force https://github.com/xiaorouji/openwrt-passwall/branches/luci package/diy/
-sed -i '$a src-git diy https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
+#克隆ssr
+#sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
+#sed -i "/helloworld/d" "feeds.conf.default"
+#echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
 
-./scripts/feeds update -a
-./scripts/feeds install -a
-./scripts/feeds install -a
+#bypass需要helloword以及passwall的依赖。
+#git clone https://github.com/kiddin9/openwrt-bypass package/diy/bypass
+#sed -i '$a src-git diy https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
+
+#克隆应用商店以及快速启动
+#sed -i '$a src-git nas https://github.com/linkease/nas-packages.git;master' feeds.conf.default
+#sed -i '$a src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main' feeds.conf.default
+git clone https://github.com/linkease/istore.git package/istore
+git clone https://github.com/linkease/istore-ui.git package/istore-ui
+
+#./scripts/feeds update -a
+#./scripts/feeds install -a
+#./scripts/feeds install -a
+
+# 修内核
+sed -i 's/4.9/4.14/g' target/linux/x86/Makefile
+#sed -i 's/4.19/4.19/g' target/linux/x86/Makefile
+
+# 修改登陆地址
+sed -i 's/192.168.1.1/192.168.8.1/g' package/base-files/files/bin/config_generate
 
 #清除lean库里几个造成编译不成功的软件
 #rm -Rf feeds/luci/applications
@@ -57,44 +75,23 @@ git clone https://github.com/ilxp/luci-app-ikoolproxy.git package/diy/luci-app-i
 #清除自带的软件库，luci会崩溃
 rm -Rf feeds/packages/net/nft-qos
 rm -Rf feeds/luci/applications/luci-app-nft-qos
-git clone https://github.com/ilxp/openwrt-nft-qos.git package/diy/openwrt-nft-qos
+#git clone https://github.com/ilxp/openwrt-nft-qos.git package/diy/openwrt-nft-qos
+svn export --force https://github.com/ilxp/openwrt-nft-qos/trunk/nft-qos  package/diy/nft-qos
+svn export --force https://github.com/ilxp/openwrt-nft-qos/trunk/luci-app-nft-qos package/diy/luci-app-nft-qos
+
 #只有克隆lean的好用,上面的已经是lean的了。
 #svn export --force https://github.com/coolsnowwolf/packages/trunk/net/nft-qos  package/diy/nft-qos
 #svn export --force https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-nft-qos package/diy/luci-app-nft-qos
 
 #克隆eqos
-svn co https://github.com/immortalwrt/luci/branches/openwrt-18.06/applications/luci-app-eqos  package/diy/luci-app-eqos
+#git clone https://github.com/ilxp/luci-app-eqos.git  package/diy/luci-app-eqos
 
-
-#svn co https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-turboacc package/diy/luci-app-turboacc
-#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/dnsforwarder package/diy/dnsforwarder
-#svn co https://github.com/coolsnowwolf/packages/trunk/net/dnsproxy package/diy/dnsproxy
 
 #mosdns（编译不成功，转战smartdns）
+#rm -Rf feeds/packages/net/mosdns
+#rm -Rf feeds/luci/applications/luci-app-mosdns
 #svn co https://github.com/QiuSimons/openwrt-mos/branches/v3_EOL/luci-app-mosdns package/diy/luci-app-mosdns
 #svn co https://github.com/QiuSimons/openwrt-mos/branches/v3_EOL/mosdns package/diy/mosdns
-
-#svn co https://github.com/sbwml/luci-app-mosdns/trunk/luci-app-mosdns package/diy/luci-app-mosdns
-#svn co https://github.com/sbwml/luci-app-mosdns/trunk/mosdns package/diy/mosdns
-#svn co https://github.com/sbwml/v2ray-geodata package/diy/v2ray-geodata
-
-
-#rm -Rf feeds/other/luci-app-adguardhome
-#svn export --force https://github.com/immortalwrt/luci/openwrt-18.06/applications/applications/luci-app-adguardhome package/diy/luci-app-adguardhome
-#svn export --force https://github.com/immortalwrt/packages/trunk/net/adguardhome package/diy/adguardhome
-
-
-rm -Rf feeds/packages/net/adguardhome
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adguardhome package/diy/luci-app-adguardhome
-svn co https://github.com/kiddin9/openwrt-packages/trunk/adguardhome package/diy/adguardhome
-
-
-# 修内核
-sed -i 's/4.9/4.14/g' target/linux/x86/Makefile
-#sed -i 's/4.19/4.19/g' target/linux/x86/Makefile
-
-# 修改登陆地址
-sed -i 's/192.168.1.1/192.168.8.1/g' package/base-files/files/bin/config_generate
 
 #openclash
 #sed -i '$a src-git openclash https://github.com/vernesong/OpenClash.git' feeds.conf.default
@@ -113,17 +110,22 @@ sed -i 's/net.netfilter.nf_conntrack_max=65535/net.netfilter.nf_conntrack_max=10
 #添加adguardhome带核心安装。
 #git clone https://github.com/rufengsuixing/luci-app-adguardhome.git  package/diy/luci-app-adguardhome
 #sed -i '/resolvfile=/d' package/diy/luci-app-adguardhome/root/etc/init.d/AdGuardHome
-#sed -i 's/DEPENDS:=/DEPENDS:=+AdGuardHome /g' package/diy/luci-app-adguardhome/Ma
+#sed -i 's/DEPENDS:=/DEPENDS:=+AdGuardHome /g' package/diy/luci-app-adguardhome/Makefile
+
+rm -Rf feeds/packages/net/adguardhome
+rm -Rf feeds/luci/applications/luci-app-adguardhome
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-adguardhome package/diy/luci-app-adguardhome
+svn co https://github.com/kiddin9/openwrt-packages/trunk/adguardhome package/diy/adguardhome
 
 #kiddin9大神
 #svn co  https://github.com/kiddin9/openwrt-bypass/luci-app-bypass package/diy/luci-app-bypass
 #git clone --depth 1 https://github.com/kiddin9/luci-app-dnsfilter package/diy/luci-app-dnsfilter
 
 #pymumu大神（18.06是lede的branch）
+rm -Rf feeds/luci/applications/luci-app-smartdns
+rm -Rf feeds/packages/net/smartdns
 git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/diy/luci-app-smartdns
 git clone https://github.com/pymumu/openwrt-smartdns.git package/diy/smartdns
-
-#svn co  https://github.com/jerrykuku/luci-app-ttnode package/diy/luci-app-ttnode
 
 #argon主题
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/diy/luci-theme-argon
@@ -156,22 +158,14 @@ svn export --force https://github.com/Lienol/openwrt-package/trunk/luci-app-cont
 svn export --force https://github.com/Lienol/openwrt-package/trunk/luci-app-control-weburl package/diy/luci-app-control-weburl
 svn export --force https://github.com/Lienol/openwrt-package/trunk/luci-app-timecontrol package/diy/luci-app-timecontrol
 
-
-
 #svn co https://github.com/brvphoenix/wrtbwmon/trunk/wrtbwmon package/wrtbwmon
 #svn co https://github.com/brvphoenix/luci-app-wrtbwmon/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
-
-#svn export --force https://github.com/kiddin9/openwrt-packages/branches/luci18/luci-app-openclash package/diy/luci-app-openclash
-#svn export --force https://github.com/kiddin9/openwrt-packages/ruby  package/diy/ruby 
-#svn export --force https://github.com/kiddin9/openwrt-packages/ruby-yaml package/diy/ruby-yaml
 
 svn co https://github.com/kiddin9/openwrt-packages/trunk/r8101  package/diy/r8101
 svn co https://github.com/kiddin9/openwrt-packages/trunk/r8125  package/diy/r8125
 svn co https://github.com/kiddin9/openwrt-packages/trunk/r8168  package/diy/r8168 
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/rtl8821cu package/diy/rtl8821cu  编译不成功，取消
 #svn co https://github.com/kiddin9/openwrt-packages/trunk/rtl88x2bu  package/diy/rtl88x2bu
-
-./scripts/feeds update -a
 
 # 内核显示增加自己个性名称(21.3.2 %y : 年份的最后两位数字)
 date=`date +%y.%m.%d`
