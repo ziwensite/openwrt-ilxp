@@ -83,8 +83,10 @@ svn export --force https://github.com/ilxp/openwrt-nft-qos/trunk/luci-app-nft-qo
 #svn export --force https://github.com/coolsnowwolf/packages/trunk/net/nft-qos  package/diy/nft-qos
 #svn export --force https://github.com/coolsnowwolf/luci/trunk/applications/luci-app-nft-qos package/diy/luci-app-nft-qos
 
-#克隆eqos
-#git clone https://github.com/ilxp/luci-app-eqos.git  package/diy/luci-app-eqos
+#克隆eqos，产生一个QOS栏目
+rm -Rf feeds/luci/applications/luci-app-eqos
+git clone https://github.com/ilxp/luci-app-eqos.git  package/diy/luci-app-eqos
+#sed -i 's/#entry/entry/g' package/diy/luci-app-eqos/luasrc/controller/eqos.lua
 
 
 #mosdns（编译不成功，转战smartdns）
