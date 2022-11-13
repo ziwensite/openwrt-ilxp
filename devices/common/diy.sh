@@ -50,8 +50,9 @@ svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06/package
 rm -Rf package/kernel/mt76  #必须清楚，否则编译不成功
 
 #eqos和ikoolproxy和clash，用我自己的
-rm -Rf package/lean/applications/luci-app-eqos
-git clone https://github.com/ilxp/luci-app-eqos.git package/diy/luci-app-eqos
+#rm -Rf package/lean/applications/luci-app-eqos
+#git clone https://github.com/ilxp/luci-app-eqos.git package/diy/luci-app-eqos
+git clone https://github.com/ilxp/openwrt-nft-qos.git package/diy/openwrt-nft-qos
 git clone https://github.com/ilxp/luci-app-ikoolproxy.git package/diy/luci-app-ikoolproxy
 
 
