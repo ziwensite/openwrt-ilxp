@@ -24,18 +24,19 @@
 #./scripts/feeds install -a
 #cd feeds/custom; git pull; cd -
 
-#克隆ssr
+#克隆ssr-plus
 #sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
 #sed -i "/helloworld/d" "feeds.conf.default"
 #echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"
 
 #bypass需要helloword以及passwall的依赖。
-#git clone https://github.com/kiddin9/openwrt-bypass package/diy/bypass
+#sed -i '$a src-git bypass https://github.com/kiddin9/openwrt-bypass.git' feeds.conf.default
 #sed -i '$a src-git diy https://github.com/xiaorouji/openwrt-passwall' feeds.conf.default
 
 #克隆应用商店以及快速启动
 #sed -i '$a src-git nas https://github.com/linkease/nas-packages.git;master' feeds.conf.default
 #sed -i '$a src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main' feeds.conf.default
+
 git clone https://github.com/linkease/istore.git package/istore
 git clone https://github.com/linkease/istore-ui.git package/istore-ui
 
