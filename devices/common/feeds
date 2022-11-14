@@ -26,4 +26,4 @@ src-git istore https://github.com/linkease/istore.git;main
 src-git istore_ui https://github.com/linkease/istore-ui.git;main
 
 #nft-qos
-src-git nft-qos https://github.com/ilxp/openwrt-nft-qos.git;main
+src-git nft_qos https://github.com/ilxp/openwrt-nft-qos.git;main
