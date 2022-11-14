@@ -81,9 +81,7 @@ git clone https://github.com/ilxp/luci-app-ikoolproxy.git package/diy/luci-app-i
 #清除自带的软件库，luci会崩溃
 rm -Rf feeds/packages/net/nft-qos
 rm -Rf feeds/luci/applications/luci-app-nft-qos
-#git clone https://github.com/ilxp/openwrt-nft-qos.git package/diy/openwrt-nft-qos
-svn export --force https://github.com/ilxp/openwrt-nft-qos/trunk/nft-qos  package/diy/nft-qos
-svn export --force https://github.com/ilxp/openwrt-nft-qos/trunk/luci-app-nft-qos package/diy/luci-app-nft-qos
+#git clone https://github.com/ilxp/openwrt-nft-qos.git package/diy/openwrt-nft-qos 从feed中添加了
 
 #只有克隆lean的好用,上面的已经是lean的了。
 #svn export --force https://github.com/coolsnowwolf/packages/trunk/net/nft-qos  package/diy/nft-qos
