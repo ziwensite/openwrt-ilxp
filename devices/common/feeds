@@ -8,12 +8,13 @@ src-git freifunk https://github.com/freifunk/openwrt-packages.git;openwrt-19.07
 #src-git other https://github.com/Lienol/openwrt-package.git;other
 
 #passwall
-src-git passwall https://github.com/xiaorouji/openwrt-passwall.git;packages
+src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall.git;packages
 src-git passwall_luci https://github.com/xiaorouji/openwrt-passwall.git;luci
 #helloword
 #src-git helloworld https://github.com/fw876/helloworld.git;master
 #bypass
 #src-git bypass https://github.com/kiddin9/openwrt-bypass.git;main
+#src-git bypass_packages https://github.com/xiaorouji/openwrt-passwall.git;packages
 #克隆应用商店以及快速启动
 #src-git nas https://github.com/linkease/nas-packages.git;master
 #src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main
