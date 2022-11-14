@@ -31,11 +31,13 @@
 
 #passwall
 #sed -i '$a src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall.git;packages' feeds.conf.default
+#sed -i '$a src-git helloworld https://github.com/fw876/helloworld' feeds.conf.default
 #sed -i '$a src-git passwall_luci https://github.com/xiaorouji/openwrt-passwall.git;luci' feeds.conf.default
 
 #bypass需要helloword以及passwall的依赖。
-#sed -i '$a src-git bypass https://github.com/kiddin9/openwrt-bypass.git' feeds.conf.default
 #sed -i '$a src-git bypass_packages https://github.com/xiaorouji/openwrt-passwall.git;packages' feeds.conf.default
+#sed -i '$a src-git bypass https://github.com/kiddin9/openwrt-bypass.git' feeds.conf.default
+
 
 #克隆应用商店以及快速启动
 #sed -i '$a src-git nas https://github.com/linkease/nas-packages.git;master' feeds.conf.default
