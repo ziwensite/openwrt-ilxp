@@ -19,6 +19,8 @@ src-git passwall_luci https://github.com/xiaorouji/openwrt-passwall.git;luci
 #src-git helloworld https://github.com/fw876/helloworld.git;master
 #src-git bypass https://github.com/kiddin9/openwrt-bypass.git;main
 
-#克隆应用商店以及快速启动
-#src-git nas https://github.com/linkease/nas-packages.git;master
-#src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main
+#克隆应用商店以及快速向导
+src-git nas https://github.com/linkease/nas-packages.git;master
+src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main
+src-git istore https://github.com/linkease/istore.git;main
+src-git istore_ui https://github.com/linkease/istore-ui.git;main
