@@ -24,3 +24,6 @@ src-git nas https://github.com/linkease/nas-packages.git;master
 src-git nas_luci https://github.com/linkease/nas-packages-luci.git;main
 src-git istore https://github.com/linkease/istore.git;main
 src-git istore_ui https://github.com/linkease/istore-ui.git;main
+
+#nft-qos
+src-git nft-qos https://github.com/ilxp/openwrt-nft-qos.git;main
