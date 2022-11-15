@@ -138,7 +138,7 @@ echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
 /etc/init.d/kcptun disable 2>/dev/null
 
 chmod 0755 /etc/init.d/*
-
+chmod 0755 /etc/init.d/netdata
 
 rm -rf /tmp/luci-*cache
 
