@@ -139,6 +139,8 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/diy
 svn co https://github.com/sirpdboy/diy/trunk/luci-app-rebootschedule package/diy/luci-app-rebootschedule
 rm -Rf feeds/luci/applications/luci-app-netdata
 git clone https://github.com/sirpdboy/luci-app-netdata.git package/diy/luci-app-netdata
+#克隆设置向导
+git clone https://github.com/sirpdboy/luci-app-wizard.git package/diy/luci-app-wizard
 
 #增加固件源码来源（只适合luci18系列，即E和N以及D系列.lienol源码只能用lean的，lean的只能用immortalwrt）
 rm -Rf feeds/other/lean/autocore
