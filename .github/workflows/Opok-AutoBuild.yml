@@ -182,8 +182,8 @@ jobs:
          cp -Rf devices/${{matrix.target}}/diy/* ./
          fi
          
-    #- name: Generate configuration file
-      #run: echo -e 'CONFIG_DEVEL=y\nCONFIG_CCACHE=y' >> .config
+    - name: Generate configuration file
+      run: echo -e 'CONFIG_DEVEL=y\nCONFIG_CCACHE=y' >> .config
 
   
     - name: Apply patches
@@ -214,12 +214,12 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
-    #- name: Cache
-      #uses: klever1988/cachewrtbuild@main
-      #if: contains(github.event.action, 'nocache') == false
-      #with:
-        #ccache: 'true'
-        #prefix: ${{ github.workspace }}/openwrt
+    - name: Cache
+      uses: klever1988/cachewrtbuild@main
+      if: contains(github.event.action, 'nocache') == false
+      with:
+        ccache: 'true'
+        prefix: ${{ github.workspace }}/openwrt
 
 
     - name: Compile the firmware
