@@ -190,3 +190,7 @@ svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang fe
 date=`date +%y.%m.%d`
 sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='Opok N-EOL@%C From Lienol OpenWRT %V By ilxp'/g" package/base-files/files/etc/openwrt_release
 sed -i "s/# REVISION:=x/REVISION:= $date/g" include/version.mk
+
+./scripts/feeds update -a
+./scripts/feeds install -a
+./scripts/feeds install -a
