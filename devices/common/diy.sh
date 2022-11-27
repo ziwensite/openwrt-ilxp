@@ -89,7 +89,7 @@ git clone https://github.com/ilxp/openwrt-nft-qos.git package/diy/openwrt-nft-qo
 
 #克隆eqos，产生一个QOS栏目
 rm -Rf feeds/luci/applications/luci-app-eqos
-git clone -b 1806 https://github.com/ilxp/luci-app-eqos.git  package/diy/luci-app-eqos
+git clone -b 2102 https://github.com/ilxp/luci-app-eqos.git  package/diy/luci-app-eqos
 
 #mosdns（编译不成功，转战smartdns）
 #rm -Rf feeds/packages/net/mosdns
