@@ -62,6 +62,7 @@ rm -Rf feeds/luci/applications/luci-app-unblockmusic
 rm -Rf feeds/luci/applications/luci-app-vlmcsd
 rm -Rf feeds/luci/applications/luci-app-wol
 rm -Rf feeds/luci/themes/luci-theme-argon
+rm -Rf feeds/lienol/verysync
 
 #克隆immortalwrt的ipv6-helper
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ipv6-helper  package/diy/ipv6-helper
