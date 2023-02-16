@@ -50,8 +50,8 @@
 #./scripts/feeds install -a
 
 # 修内核
-sed -i 's/4.9/4.14/g' target/linux/x86/Makefile
-#sed -i 's/4.19/4.19/g' target/linux/x86/Makefile
+sed -i 's/5.4/4.19/g' target/linux/x86/Makefile
+#sed -i 's/4.14/4.19/g' target/linux/x86/Makefile
 
 # 修改登陆地址
 sed -i 's/192.168.1.1/192.168.8.1/g' package/base-files/files/bin/config_generate
