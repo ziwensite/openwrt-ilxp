@@ -1,7 +1,7 @@
 config samba
-	option 'name'			'Opok'
+	option 'name'			'iWRT'
 	option 'workgroup'		'WORKGROUP'
-	option 'description'		'Shared On Opok'
+	option 'description'		'Shared On iWRT'
 	option 'homes'			'1'
 
 
