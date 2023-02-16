@@ -5,7 +5,7 @@ uci set luci.main.lang=zh_cn
 uci set luci.main.mediaurlbase=/luci-static/argon
 uci commit luci
 
-uci set system.@system[0].hostname=Opok
+uci set system.@system[0].hostname=iWRT
 uci set system.@system[0].timezone=CST-8
 uci set system.@system[0].zonename=Asia/Shanghai
 uci -q del system.ntp.server
@@ -120,7 +120,7 @@ wifi up
 #echo "DISTRIB_DESCRIPTION='OneWrt '" >> /etc/openwrt_release
 
 sed -i '/DISTRIB_ID/d' /etc/openwrt_release
-echo "DISTRIB_ID='Opok'" >> /etc/openwrt_release
+echo "DISTRIB_ID='iWRT'" >> /etc/openwrt_release
 
 # NEVER DROP THE EXISTING AUTHORS INFO | 禁止删除现有作者信息
 #sed -i 's/LuCI 17.01 Lienol/LuCI 17.01/g' /usr/lib/lua/luci/version.lua
