@@ -7,7 +7,7 @@
 # Frome: https://github.com/P3TERX/Actions-OpenWrt
 # Frome: https://github.com/Lienol/openwrt-actions
 # Frome: https://github.com/svenstaro/upload-release-action
-# By Opok 2022 https://www.opok.org
+# By iWRT 2023 https://www.iwrt.top
 # https://github.com/ilxp
 #=================================================
 
@@ -189,7 +189,7 @@ svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang fe
 
 # 内核显示增加自己个性名称(21.3.2 %y : 年份的最后两位数字)
 date=`date +%y.%m.%d`
-sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='Opok N-EOL@%C From Lienol OpenWRT %V By ilxp'/g" package/base-files/files/etc/openwrt_release
+sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='Opok N_series@%C from lienol openwrt %V by ilxp'/g" package/base-files/files/etc/openwrt_release
 sed -i "s/# REVISION:=x/REVISION:= $date/g" include/version.mk
 
 ./scripts/feeds update -a
