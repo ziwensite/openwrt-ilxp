@@ -474,8 +474,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
       with:
         files: "${{ env.FIRMWARE }}/*"
-        name: ${{ env.date2 }}-iWRT-${{matrix.target}} ${{ env.EMOJI }}
-        tag_name: ${{ env.date }}-iWRT-${{matrix.target}}
+        name: ${{ env.date2 }}-iWRT-1907-${{matrix.target}} ${{ env.EMOJI }}
+        tag_name: ${{ env.date }}-iWRT-1907-${{matrix.target}}
         body_path: release.txt
 
     - name: Upload firmware for artifact
