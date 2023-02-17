@@ -50,7 +50,7 @@
 #./scripts/feeds install -a
 
 # 修内核
-sed -i 's/5.4/4.19/g' target/linux/x86/Makefile
+#sed -i 's/5.4/4.19/g' target/linux/x86/Makefile
 #sed -i 's/4.14/4.19/g' target/linux/x86/Makefile
 
 # 修改登陆地址
@@ -63,6 +63,8 @@ rm -Rf feeds/luci/applications/luci-app-vlmcsd
 rm -Rf feeds/luci/applications/luci-app-wol
 rm -Rf feeds/luci/themes/luci-theme-argon
 rm -Rf feeds/lienol/verysync
+
+#rm -Rf package/network/services/wireguard #编译不成功
 
 #克隆immortalwrt的ipv6-helper
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ipv6-helper  package/diy/ipv6-helper
