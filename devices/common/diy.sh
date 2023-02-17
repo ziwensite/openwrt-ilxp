@@ -151,7 +151,7 @@ rm -Rf feeds/other/lean/autocore
 #sed -i '/Load Average/i\\t\t<tr><td width="33%"><%:固件源码%></td><td><a href="https://github.com/lienol/openwrt"><%:感谢Lienol大神对OpenWrt的开源贡献！%></a></td></tr>' package/diy/autocore/files/x86/index.htm
 
 #svn export --force https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06/package/emortal/autocore package/diy/autocore
-sed -i '/Load Average/i\\t\t<tr><td width="33%"><%:固件源码%></td><td><a href="https://github.com/lienol/openwrt"><%:感谢Lienol大神对OpenWrt的开源贡献！%></a></td></tr>' package/diy/autocore/files/generic/index.htm
+sed -i '/Load Average/i\\t\t<tr><td width="33%"><%:开源致谢%></td><td><a href="https://github.com/lienol/openwrt"><%:欢迎使用iWRT，感谢lienol大神对OpenWrt的开源贡献！%></a></td></tr>' package/diy/autocore/files/generic/index.htm
   
 
 #git clone https://github.com/destan19/OpenAppFilter.git package/diy/OpenAppFilter
@@ -191,7 +191,7 @@ svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang fe
 
 # 内核显示增加自己个性名称(21.3.2 %y : 年份的最后两位数字)
 date=`date +%y.%m.%d`
-sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='Opok N_series@%C from lienol openwrt %V by ilxp'/g" package/base-files/files/etc/openwrt_release
+sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='iWRT 1907@%C from lienol openwrt %V by ilxp'/g" package/base-files/files/etc/openwrt_release
 sed -i "s/# REVISION:=x/REVISION:= $date/g" include/version.mk
 
 ./scripts/feeds update -a
