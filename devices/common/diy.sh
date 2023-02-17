@@ -64,7 +64,7 @@ rm -Rf feeds/luci/applications/luci-app-wol
 rm -Rf feeds/luci/themes/luci-theme-argon
 rm -Rf feeds/lienol/verysync
 
-#rm -Rf package/network/services/wireguard #编译不成功
+#rm -Rf package/network/services/wireguard #5.4内核编译不成功
 
 #克隆immortalwrt的ipv6-helper
 #svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/ipv6-helper  package/diy/ipv6-helper
